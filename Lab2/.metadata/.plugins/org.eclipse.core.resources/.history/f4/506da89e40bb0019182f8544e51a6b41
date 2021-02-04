@@ -1,0 +1,38 @@
+
+public class BabyMonitorAdvanced implements Observer {
+
+	private Subject mdata;
+	private String babyname;
+	private String name;
+	private boolean crying;
+	private int level;
+	
+	public BabyMonitorAdvanced(String name, Baby m, Baby c) {
+		this.babyname = name;
+		this.mdata = m;
+		mdata.registerObserver(this);
+		crying = false;
+	}
+	
+	public void display() {
+		System.out.println("Baby crying, at" + name);
+	}
+	
+	
+	@Override
+	public void update(String babyname, boolean crying, int level) {
+		this.crying = crying;
+		this.babyname = name;
+		this.level = level;
+		display();
+
+
+	}
+
+	@Override
+	public void update(Baby babyname) {
+		display();
+		
+	}
+
+}

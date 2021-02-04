@@ -1,0 +1,5 @@
+package BookStore;
+
+public abstract class Command {
+	public abstract void execute(Inventory newInvent);
+}

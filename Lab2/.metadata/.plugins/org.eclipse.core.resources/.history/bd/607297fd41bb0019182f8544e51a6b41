@@ -1,0 +1,15 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Baby baby = new Baby("Job");
+		
+		Observer observer = new BabyMonitorSimple("Bedroom", baby);
+		
+		//baby.registerObserver(new BabyMonitorSimple("Bedroom", baby));
+		//baby.registerObserver(new BabyMonitorAdvanced("Livingroom", baby, baby));
+
+		baby.setData(true, 0);
+	}
+
+}

@@ -1,0 +1,36 @@
+
+public class BabyMonitorSimple implements Observer {
+
+	private Baby mdata;
+	private String name;
+	private boolean crying;
+	
+	public BabyMonitorSimple(String location, Baby name) {
+		this.name = location;
+		this.mdata = name;
+
+	}
+	
+	public void display() {
+		if (crying) {
+			System.out.println(mdata + "crying at " + name);
+		}
+	}
+	public void turnoff() {
+		mdata.removeObserver(this);
+	}
+	
+	@Override
+	public void update(Baby baby) {
+		this.mdata = baby;
+		this.crying = mdata.getCrying();
+		display();
+	}
+
+	@Override
+	public void update(String babyname, boolean crying, int level) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
